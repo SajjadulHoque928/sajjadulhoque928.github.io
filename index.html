@@ -26,22 +26,47 @@
       background: var(--bg);
       color: var(--text);
       scroll-behavior: smooth;
+      transition: 0.4s;
     }
 
     /* Navbar */
     nav {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 15px 30px;
       background: var(--card);
       position: sticky;
       top: 0;
+      z-index: 1000;
     }
 
     nav a {
       margin: 0 10px;
       color: var(--text);
       text-decoration: none;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    /* hover underline effect */
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: var(--accent);
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     button {
@@ -55,7 +80,8 @@
     }
 
     button:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     header {
@@ -69,6 +95,11 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--accent);
+      transition: 0.3s;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
     }
 
     #typing {
@@ -95,10 +126,12 @@
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
+      box-shadow: 0 0 0 transparent;
     }
 
     .project:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .details {
@@ -139,7 +172,13 @@
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
-        text-align: center;
+        gap: 10px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .profile-pic {
@@ -150,10 +189,6 @@
       h1 {
         font-size: 24px;
       }
-
-      section {
-        padding: 20px;
-      }
     }
   </style>
 </head>
@@ -161,23 +196,20 @@
 <body>
 
 <nav>
-  <div><b>Sajjadul</b></div>
   <div>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <button onclick="toggleMode()">🌙</button>
   </div>
+
+  <button onclick="toggleMode()">🌙</button>
 </nav>
 
 <header class="fade">
   <img src="profile.jpeg" class="profile-pic">
   <h1>Sajjadul Hoque 👋</h1>
-
-  <!-- Typing -->
   <p id="typing"></p>
 
-  <!-- CV Button -->
   <a href="cv.pdf" download>
     <button>📄 Download CV</button>
   </a>
@@ -229,7 +261,16 @@
     document.body.classList.toggle("light-mode");
   }
 
-  /* Fade */
+  /* Smooth scroll fix for nav */
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  /* Fade animation */
   const faders = document.querySelectorAll(".fade");
   window.addEventListener("scroll", () => {
     faders.forEach(el => {
@@ -240,7 +281,7 @@
     });
   });
 
-  /* Typing */
+  /* Typing effect */
   const text = "CSE Student | Web Developer | ML Enthusiast";
   let i = 0;
 
