@@ -45,30 +45,9 @@ nav a {
   margin: 0 10px;
   color: var(--text);
   text-decoration: none;
-  position: relative;
-  transition: 0.3s;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: var(--accent);
-  transition: 0.3s;
 }
 
 nav a:hover {
-  color: var(--accent);
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-nav a.active {
   color: var(--accent);
 }
 
@@ -80,12 +59,6 @@ button {
   padding: 6px 12px;
   cursor: pointer;
   border-radius: 6px;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px var(--accent);
 }
 
 /* HEADER */
@@ -98,17 +71,10 @@ header {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid var(--accent);
-  transition: 0.3s;
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
 }
 
 #typing {
-  margin-top: 10px;
   color: var(--accent);
   font-weight: bold;
 }
@@ -125,88 +91,37 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* CARD */
+/* PROJECT */
 .project {
   background: var(--card);
   padding: 15px;
   margin: 15px 0;
   border-radius: 10px;
-  transition: 0.3s;
+  cursor: pointer;
 }
 
 .project:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
 }
 
-/* DETAILS */
 .details {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.4s;
-}
-
-.project.active .details {
-  max-height: 200px;
+  display: none;
   margin-top: 10px;
 }
 
-a {
-  color: var(--accent);
-  display: inline-block;
-  margin-top: 5px;
+.project.active .details {
+  display: block;
 }
 
-/* FADE */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* EDUCATION */
-#education .project {
-  border-left: 3px solid var(--accent);
-  padding-left: 15px;
-}
-
-/* ⭐ SKILLS SECTION */
+/* SKILLS */
 .skill {
-  margin: 15px 0;
+  background: var(--card);
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
 }
 
-.skill-name {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.bar {
-  width: 100%;
-  height: 10px;
-  background: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.fill {
-  height: 10px;
-  width: 0;
-  background: var(--accent);
-  border-radius: 10px;
-  transition: 1s ease-in-out;
-}
-
-.fill.show {
-  width: var(--level);
-}
-
-/* CONTACT ICONS */
+/* CONTACT */
 .icon-link {
   display: block;
   margin: 10px 0;
@@ -216,12 +131,10 @@ a {
   background: rgba(255,255,255,0.03);
   border-radius: 8px;
   transition: 0.3s;
-  border-left: 3px solid transparent;
 }
 
 .icon-link:hover {
-  transform: translateX(8px);
-  border-left: 3px solid var(--accent);
+  transform: translateX(5px);
   color: var(--accent);
 }
 
@@ -229,20 +142,6 @@ a {
 footer {
   text-align: center;
   padding: 20px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }
 </style>
 </head>
@@ -260,7 +159,7 @@ footer {
   <button onclick="toggleMode()">🌙</button>
 </nav>
 
-<header class="fade">
+<header>
   <img src="profile.jpeg" class="profile-pic">
   <h1>Sajjadul Hoque 👋</h1>
   <p id="typing"></p>
@@ -270,66 +169,82 @@ footer {
   </a>
 </header>
 
-<section id="about" class="fade">
+<!-- ABOUT -->
+<section id="about">
   <h2>About Me</h2>
-  <p>I'm a Computer Science & Engineering student passionate about programming, AI, ML, and real-world application development.</p>
+  <p>
+    I'm a student of Computer Science & Engineering,passionate about gaming,programming, AI, ML, and real-world application development.Learning Web Development and Deep Learning.
+  </p>
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="fade">
+<section id="education">
   <h2>Education</h2>
 
   <div class="project">
-    <h3>BSc in CSE</h3>
+    <h3>BSc in Computer Science & Engineering</h3>
     <p>Port City International University</p>
     <p>2023 - Present</p>
   </div>
+
+  <div class="project">
+    <h3>HSC (Science)</h3>
+    <p>Chittagong University Laboratory School & College</p>
+    <p>2019 - 2020</p>
+  </div>
+
+  <div class="project">
+    <h3>SSC (Science)</h3>
+    <p>Chittagong University Laboratory School & College</p>
+    <p>2017 - 2018</p>
+  </div>
 </section>
 
-<!-- ⭐ SKILLS -->
-<section id="skills" class="fade">
+<!-- SKILLS -->
+<section id="skills">
   <h2>Skills</h2>
 
-  <div class="skill">
-    <div class="skill-name"><span>HTML</span><span>90%</span></div>
-    <div class="bar"><div class="fill" style="--level:90%"></div></div>
-  </div>
-
-  <div class="skill">
-    <div class="skill-name"><span>CSS</span><span>85%</span></div>
-    <div class="bar"><div class="fill" style="--level:85%"></div></div>
-  </div>
-
-  <div class="skill">
-    <div class="skill-name"><span>JavaScript</span><span>75%</span></div>
-    <div class="bar"><div class="fill" style="--level:75%"></div></div>
-  </div>
-
-  <div class="skill">
-    <div class="skill-name"><span>Python</span><span>70%</span></div>
-    <div class="bar"><div class="fill" style="--level:70%"></div></div>
-  </div>
+  <div class="skill">HTML</div>
+  <div class="skill">CSS</div>
+  <div class="skill">JavaScript</div>
+  <div class="skill">Python</div>
+  <div class="skill">Machine Learning (Basic)</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="fade">
+<section id="projects">
   <h2>Projects</h2>
 
-  <div class="project">
+  <div class="project" onclick="toggleDetails(this)">
     <h3>Task Manager App</h3>
-    <p>Daily task manager.</p>
+    <p>Click to view details</p>
+
+    <div class="details">
+      <a href="https://github.com/">🔗 GitHub</a><br>
+      <a href="#">🌐 Live Demo</a>
+    </div>
+  </div>
+
+  <div class="project" onclick="toggleDetails(this)">
+    <h3>Student Management System</h3>
+    <p>Click to view details</p>
+
+    <div class="details">
+      <a href="https://github.com/">🔗 GitHub</a><br>
+      <a href="#">🌐 Live Demo</a>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade">
+<section id="contact">
   <h2>Contact</h2>
 
   <div class="project">
-    <a class="icon-link" href="mailto:test@gmail.com">📧 Gmail</a>
+    <a class="icon-link" href="sajjadulhoquesajjad@gmail.com">📧 Gmail</a>
     <a class="icon-link" href="https://linkedin.com">💼 LinkedIn</a>
-    <a class="icon-link" href="https://facebook.com">📘 Facebook</a>
-    <a class="icon-link" href="https://instagram.com">📸 Instagram</a>
+    <a class="icon-link" href="https://www.facebook.com/share/18F4f4hknV/">📘 Facebook</a>
+    <a class="icon-link" href="https://www.instagram.com/_._.sajuu_fajuu._._?igsh=bGc2cXUxcHpnM29l">📸 Instagram</a>
   </div>
 </section>
 
@@ -344,24 +259,12 @@ function toggleMode() {
   document.body.classList.toggle("light-mode");
 }
 
-/* FADE + SKILL ANIMATION */
-window.addEventListener("scroll", () => {
+/* PROJECT TOGGLE */
+function toggleDetails(el) {
+  el.classList.toggle("active");
+}
 
-  document.querySelectorAll(".fade").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
-
-  document.querySelectorAll(".fill").forEach(bar => {
-    if (bar.getBoundingClientRect().top < window.innerHeight - 100) {
-      bar.classList.add("show");
-    }
-  });
-
-});
-
-/* TYPING */
+/* TYPING EFFECT */
 const text = "CSE Student | Web Developer | ML Enthusiast";
 let i = 0;
 
