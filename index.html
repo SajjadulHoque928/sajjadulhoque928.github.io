@@ -1,196 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sajjadul Hoque</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sajjadul Hoque</title>
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #020617;
-      --text: #e2e8f0;
-      --accent: #38bdf8;
-    }
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #020617;
+  --text: #e2e8f0;
+  --accent: #38bdf8;
+}
 
-    .light-mode {
-      --bg: #f1f5f9;
-      --card: #ffffff;
-      --text: #0f172a;
-      --accent: #0ea5e9;
-    }
+.light-mode {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --accent: #0ea5e9;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-      transition: 0.4s;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  transition: 0.4s;
+}
 
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: var(--card);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    nav a {
-      margin: 0 10px;
-      color: var(--text);
-      text-decoration: none;
-      position: relative;
-      transition: 0.3s;
-    }
+nav a {
+  margin: 0 10px;
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
 
-    /* hover underline effect */
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -5px;
-      background: var(--accent);
-      transition: 0.3s;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: var(--accent);
+  transition: 0.3s;
+}
 
-    nav a:hover {
-      color: var(--accent);
-    }
+nav a:hover {
+  color: var(--accent);
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    button {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
+nav a.active {
+  color: var(--accent);
+}
 
-    button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 10px var(--accent);
-    }
+/* BUTTON */
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-    }
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--accent);
+}
 
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      transition: 0.3s;
-    }
+/* HEADER */
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
 
-    .profile-pic:hover {
-      transform: scale(1.05);
-    }
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  transition: 0.3s;
+}
 
-    #typing {
-      margin-top: 10px;
-      color: var(--accent);
-      font-weight: bold;
-    }
+.profile-pic:hover {
+  transform: scale(1.05);
+}
 
-    section {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+#typing {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: bold;
+}
 
-    h2 {
-      border-bottom: 2px solid #334155;
-      padding-bottom: 10px;
-    }
+/* SECTIONS */
+section {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .project {
-      background: var(--card);
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 0 transparent;
-    }
+h2 {
+  border-bottom: 2px solid #334155;
+  padding-bottom: 10px;
+}
 
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+/* PROJECT / CARD STYLE */
+.project {
+  background: var(--card);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .details {
-      max-height: 0;
-      overflow: hidden;
-      transition: 0.4s;
-    }
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
 
-    .project.active .details {
-      max-height: 200px;
-      margin-top: 10px;
-    }
+/* DETAILS */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
 
-    a {
-      color: var(--accent);
-      display: inline-block;
-      margin-top: 5px;
-    }
+.project.active .details {
+  max-height: 200px;
+  margin-top: 10px;
+}
 
-    /* Fade animation */
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.6s;
-    }
+a {
+  color: var(--accent);
+  display: inline-block;
+  margin-top: 5px;
+}
 
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* FADE */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-    }
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+}
 
-      nav div {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+/* EDUCATION STYLE */
+#education .project {
+  border-left: 3px solid var(--accent);
+  padding-left: 15px;
+}
 
-      .profile-pic {
-        width: 100px;
-        height: 100px;
-      }
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-      h1 {
-        font-size: 24px;
-      }
-    }
-  </style>
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -198,10 +203,10 @@
 <nav>
   <div>
     <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-
   <button onclick="toggleMode()">🌙</button>
 </nav>
 
@@ -217,7 +222,30 @@
 
 <section id="about" class="fade">
   <h2>About Me</h2>
-  <p>Passionate about programming, problem solving and building real-world apps.</p>
+  <p>I'm a student of Computer Science & Engineering, passionate about gaming, programming, problem solving and building real-world apps. Learning Web Development, Machine Learning & Deep Learning.</p>
+</section>
+
+<!-- ✅ EDUCATION ADDED HERE -->
+<section id="education" class="fade">
+  <h2>Education</h2>
+
+  <div class="project">
+    <h3>BSc in Computer Science & Engineering</h3>
+    <p>Currently Studying</p>
+    <p>2023 - Present</p>
+  </div>
+
+  <div class="project">
+    <h3>Higher Secondary Certificate (HSC)</h3>
+    <p>Science Group</p>
+    <p>2020 - 2022</p>
+  </div>
+
+  <div class="project">
+    <h3>Secondary School Certificate (SSC)</h3>
+    <p>Science Group</p>
+    <p>2018 - 2020</p>
+  </div>
 </section>
 
 <section id="projects" class="fade">
@@ -240,7 +268,6 @@
       <a href="#">🌐 Live Demo</a>
     </div>
   </div>
-
 </section>
 
 <section id="contact" class="fade">
@@ -253,46 +280,70 @@
 </footer>
 
 <script>
-  function toggleDetails(el) {
-    el.classList.toggle("active");
-  }
 
-  function toggleMode() {
-    document.body.classList.toggle("light-mode");
-  }
+/* PROJECT TOGGLE */
+function toggleDetails(el) {
+  el.classList.toggle("active");
+}
 
-  /* Smooth scroll fix for nav */
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      target.scrollIntoView({ behavior: "smooth" });
-    });
+/* MODE */
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    target.scrollIntoView({ behavior: "smooth" });
   });
+});
 
-  /* Fade animation */
-  const faders = document.querySelectorAll(".fade");
-  window.addEventListener("scroll", () => {
-    faders.forEach(el => {
-      const rect = el.getBoundingClientRect().top;
-      if (rect < window.innerHeight - 100) {
-        el.classList.add("show");
-      }
-    });
-  });
+/* ACTIVE NAV */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-  /* Typing effect */
-  const text = "CSE Student | Web Developer | ML Enthusiast";
-  let i = 0;
+window.addEventListener("scroll", () => {
+  let current = "";
 
-  function typeEffect() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeEffect, 50);
+  sections.forEach(sec => {
+    const top = sec.offsetTop;
+    if (pageYOffset >= top - 150) {
+      current = sec.getAttribute("id");
     }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+
+  /* FADE */
+  document.querySelectorAll(".fade").forEach(el => {
+    const rect = el.getBoundingClientRect().top;
+    if (rect < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+
+/* TYPING */
+const text = "CSE Student | Web Developer | ML Enthusiast";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").textContent += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 50);
   }
-  typeEffect();
+}
+
+typeEffect();
+
 </script>
 
 </body>
