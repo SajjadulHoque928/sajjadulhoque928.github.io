@@ -6,6 +6,52 @@
   <title>Sajjadul Hoque</title>
 
   <style>
+    .project {
+  background: #0b1a2f;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.project:hover {
+  transform: scale(1.03);
+  background: #12294a;
+}
+
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.project.active .details {
+  max-height: 200px;
+  margin-top: 10px;
+}
+    <div class="project" onclick="toggleDetails(this)">
+  <h3>Task Manager App</h3>
+  <p>A simple web app to manage daily tasks.</p>
+  <div class="details">
+    <p>Features: Add, delete, update tasks.</p>
+    <a href="#">GitHub Link</a>
+  </div>
+</div>
+
+<div class="project" onclick="toggleDetails(this)">
+  <h3>Student Management System</h3>
+  <p>Manage student records using CRUD operations.</p>
+  <div class="details">
+    <p>Features: ভর্তি, update, delete student info.</p>
+    <a href="#">GitHub Link</a>
+  </div>
+</div>
+    <script>
+function toggleDetails(element) {
+  element.classList.toggle("active");
+}
+</script>
     .profile-pic {
   width: 150px;
   height: 150px;
