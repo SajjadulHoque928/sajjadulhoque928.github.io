@@ -125,13 +125,12 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* CARD STYLE */
+/* CARD */
 .project {
   background: var(--card);
   padding: 15px;
   margin: 15px 0;
   border-radius: 10px;
-  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -176,6 +175,37 @@ a {
   padding-left: 15px;
 }
 
+/* ⭐ SKILLS SECTION */
+.skill {
+  margin: 15px 0;
+}
+
+.skill-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 10px;
+  width: 0;
+  background: var(--accent);
+  border-radius: 10px;
+  transition: 1s ease-in-out;
+}
+
+.fill.show {
+  width: var(--level);
+}
+
 /* CONTACT ICONS */
 .icon-link {
   display: block;
@@ -193,7 +223,6 @@ a {
   transform: translateX(8px);
   border-left: 3px solid var(--accent);
   color: var(--accent);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* FOOTER */
@@ -224,6 +253,7 @@ footer {
   <div>
     <a href="#about">About</a>
     <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
@@ -242,7 +272,7 @@ footer {
 
 <section id="about" class="fade">
   <h2>About Me</h2>
-  <p>I'm a student of Computer Science & Engineering, passionate about gaming, programming, problem solving and building real-world apps. Learning Web Development, Machine Learning & Deep Learning.</p>
+  <p>I'm a Computer Science & Engineering student passionate about programming, AI, ML, and real-world application development.</p>
 </section>
 
 <!-- EDUCATION -->
@@ -250,21 +280,34 @@ footer {
   <h2>Education</h2>
 
   <div class="project">
-    <h3>BSc in Computer Science & Engineering</h3>
-    <p>Port City International University, Chittagong</p>
+    <h3>BSc in CSE</h3>
+    <p>Port City International University</p>
     <p>2023 - Present</p>
   </div>
+</section>
 
-  <div class="project">
-    <h3>Higher Secondary Certificate (HSC)</h3>
-    <p>Chittagong University Laboratory School & College</p>
-    <p>2018 - 2020</p>
+<!-- ⭐ SKILLS -->
+<section id="skills" class="fade">
+  <h2>Skills</h2>
+
+  <div class="skill">
+    <div class="skill-name"><span>HTML</span><span>90%</span></div>
+    <div class="bar"><div class="fill" style="--level:90%"></div></div>
   </div>
 
-  <div class="project">
-    <h3>Secondary School Certificate (SSC)</h3>
-    <p>Chittagong University Laboratory School & College</p>
-    <p>2016 - 2018</p>
+  <div class="skill">
+    <div class="skill-name"><span>CSS</span><span>85%</span></div>
+    <div class="bar"><div class="fill" style="--level:85%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name"><span>JavaScript</span><span>75%</span></div>
+    <div class="bar"><div class="fill" style="--level:75%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name"><span>Python</span><span>70%</span></div>
+    <div class="bar"><div class="fill" style="--level:70%"></div></div>
   </div>
 </section>
 
@@ -272,22 +315,9 @@ footer {
 <section id="projects" class="fade">
   <h2>Projects</h2>
 
-  <div class="project" onclick="toggleDetails(this)">
+  <div class="project">
     <h3>Task Manager App</h3>
     <p>Daily task manager.</p>
-    <div class="details">
-      <a href="https://github.com/" target="_blank">GitHub</a><br>
-      <a href="#">🌐 Live Demo</a>
-    </div>
-  </div>
-
-  <div class="project" onclick="toggleDetails(this)">
-    <h3>Student Management System</h3>
-    <p>CRUD based system.</p>
-    <div class="details">
-      <a href="https://github.com/" target="_blank">GitHub</a><br>
-      <a href="#">🌐 Live Demo</a>
-    </div>
   </div>
 </section>
 
@@ -296,12 +326,10 @@ footer {
   <h2>Contact</h2>
 
   <div class="project">
-    <h3>Get in Touch</h3>
-
-    <a class="icon-link" href="mailto:sajjadulhoquesajjad@gmail.com">📧 Gmail</a>
-    <a class="icon-link" href="https://linkedin.com" target="_blank">💼 LinkedIn</a>
-    <a class="icon-link" href="https://facebook.com" target="_blank">📘 Facebook</a>
-    <a class="icon-link" href="https://instagram.com" target="_blank">📸 Instagram</a>
+    <a class="icon-link" href="mailto:test@gmail.com">📧 Gmail</a>
+    <a class="icon-link" href="https://linkedin.com">💼 LinkedIn</a>
+    <a class="icon-link" href="https://facebook.com">📘 Facebook</a>
+    <a class="icon-link" href="https://instagram.com">📸 Instagram</a>
   </div>
 </section>
 
@@ -311,52 +339,26 @@ footer {
 
 <script>
 
-/* TOGGLE PROJECT */
-function toggleDetails(el) {
-  el.classList.toggle("active");
-}
-
-/* DARK MODE */
+/* MODE */
 function toggleMode() {
   document.body.classList.toggle("light-mode");
 }
 
-/* SMOOTH SCROLL */
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    target.scrollIntoView({ behavior: "smooth" });
-  });
-});
-
-/* ACTIVE NAV + FADE */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
+/* FADE + SKILL ANIMATION */
 window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    if (pageYOffset >= top - 150) {
-      current = sec.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
 
   document.querySelectorAll(".fade").forEach(el => {
-    const rect = el.getBoundingClientRect().top;
-    if (rect < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("show");
     }
   });
+
+  document.querySelectorAll(".fill").forEach(bar => {
+    if (bar.getBoundingClientRect().top < window.innerHeight - 100) {
+      bar.classList.add("show");
+    }
+  });
+
 });
 
 /* TYPING */
